@@ -25,6 +25,10 @@ a {
     text-decoration: none;
 }
 
+.feedback-form > div > button{
+    margin: 0;
+    width: 150px;
+}
  
 .navbar {
     box-shadow: var(--box-shadow);
@@ -208,8 +212,9 @@ h6{
      
 }
     
- .register-form > div{
+.register-form > div{
     padding-top: 10px;
+ 
  }
 
 .register-form > div > input{ 
@@ -219,8 +224,10 @@ h6{
  
 }
 .register-form > div > button {
-    width: 100px;
-    margin: auto;
+    width: 180px;
+    margin: 0;
+ 
+
 }
 
  

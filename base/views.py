@@ -13,4 +13,8 @@ def login(request):
  
 
 def signup(request):
-    return render(request, 'register.html')     
+    return render(request, 'register.html') 
+
+def registered(request):
+    print(request)
+    return(request, "register.html")        

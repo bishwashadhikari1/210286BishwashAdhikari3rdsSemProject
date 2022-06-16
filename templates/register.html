@@ -12,7 +12,8 @@ Register
             </div>
         </div>
 
-            <form action="" class="register-form row   justify-content-center">
+            <form action="/registered" class="register-form row   justify-content-center" method="POST">
+                {% csrf_token %}
                 <div class="col-md-12">
                     <input type="text" class="form-control" placeholder="Username">
                 </div>
