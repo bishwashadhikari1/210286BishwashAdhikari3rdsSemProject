@@ -1,0 +1,37 @@
+.btn-parameter{
+    border: 1px solid black;
+    margin-left: 40px;
+    width: 100px;
+}
+.btn-parameter:hover{
+    transform: scale(110%);
+}
+
+.btn-parameter:active{
+    background-color: rgb(42, 97, 51);
+}
+
+
+
+.modify-btn{
+    align-self: center;
+}
+.modify-btn:hover{
+    transform: scale(130%);
+}
+
+.feedback-form > select, label{
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.feedback-form > select{
+    background-color: transparent;
+
+}
+.feedback-form{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+}
