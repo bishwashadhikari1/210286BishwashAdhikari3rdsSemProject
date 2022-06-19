@@ -1,9 +1,13 @@
 from django.db import models
 
-class User(models.Model):
-    username = models.CharField(primary_key = True, max_length=50)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    apikey = models.CharField(max_length=50)
-    apisecret = models.CharField(max_length=50)
+class Users(models.Model):
+    username = models.CharField(max_length=50, primary_key=True)
+    password = models.CharField(max_length=32, null=False, default=False)
+    email = models.CharField(max_length=50, null=False, default=False )
+    apikey = models.CharField(max_length=100, default="", null=False )
+    apisecret = models.CharField(max_length=100, default="", null=False) 
+ 
+
+    class Meta:
+        db_table = 'users'
 

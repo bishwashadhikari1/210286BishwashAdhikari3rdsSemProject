@@ -2,8 +2,7 @@
 from django.shortcuts import render
 from base.forms import RegisterForm
 
-from base.models import User
- 
+  
 
 # Create your views here.
 def home(request):
@@ -12,16 +11,21 @@ def home(request):
 def login(request):
     return render(request, 'login.html')
 
+def index(request):
+    context = {'RegisterForm' : RegisterForm}
+
+    return render(request, 'preferances.html', context ) 
+
  
 
 def signup(request):
-    form = RegisterForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    context = {'RegisterForm': RegisterForm}    
-    return render(request, 'register.html', context) 
+    formm = RegisterForm(request.POST )
+    print(formm.data)    
 
-def registered(request):
-    print(request)
+    if formm.is_valid():
+        print("Valid rcha")
+        formm.save()
+    context = {'RegisterForm' : RegisterForm}
+    return render(request, 'register.html', context ) 
 
-    return(request, "register.html")        
+   

@@ -12,26 +12,26 @@ Register
             </div>
         </div>
 
-            <form action="/registered" class="register-form row   justify-content-center" method="POST">
+            <form action="/saveuser/"  class="register-form row   justify-content-center" method="POST">
                 {% csrf_token %}
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="E-mail">
+                    <input type="text" class="form-control" placeholder="E-mail" name="email">
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="API Key">
+                    <input type="text" class="form-control" placeholder="API Key" name="apikey">
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="API Secret">
+                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret">
                 </div>
                 <div class="col-md-12 d-grid">
                     <input type="submit" class="btn btn-primary" value="Register"> 

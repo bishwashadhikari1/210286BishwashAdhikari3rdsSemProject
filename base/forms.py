@@ -1,6 +1,7 @@
 from django import forms
-from base.models import User
-class RegisterForm(forms.Form):
+from base.models import Users
+class RegisterForm(forms.ModelForm):
     class Meta:
-        model = User
-        field = "__all__"
+        model = Users
+        fields = "__all__"
+        print(fields)
