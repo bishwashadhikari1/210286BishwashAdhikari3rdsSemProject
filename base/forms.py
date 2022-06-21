@@ -4,4 +4,3 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = "__all__"
-        print(fields)

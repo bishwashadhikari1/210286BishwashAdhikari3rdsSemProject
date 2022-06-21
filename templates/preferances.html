@@ -9,9 +9,10 @@ Preferances
 <h2>
 Preferances
 </h2>
-<form action="" class = 'feedback-form'>
+<form action="/preferancesmodified/" class = 'feedback-form' method="POST">
+    {% csrf_token %}
     <h3>
-    <label for="risk" >RISK</label>
+    <label for="risk">RISK</label>
     <select name="risk" id="risk">
         <option value="0.5">0.5%</option>
         <option value="1">1%</option>
@@ -59,7 +60,7 @@ Preferances
         <option value="sma">SMA</option>
     </select>
     <br>
-    <label for="timeframe">Time Frame</label>
+    <label for="timeframe" >Time Frame</label>
     <select name="timeframe" id="timeframe">
         <option value="1">1 min</option>
         <option value="5">5 min</option>
@@ -87,7 +88,7 @@ Preferances
         <option value="10">10</option>
     </select>
     <br>
-    <input class="modify-btn btn-parameter" type="submit" name="modify" id="modify" value="Modify">
+    <input class="btn modify-btn btn-parameter" type="submit" id="modify" value="Modify">
 </h3>
 
 </form>

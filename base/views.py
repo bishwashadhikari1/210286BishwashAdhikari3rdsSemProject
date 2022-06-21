@@ -11,20 +11,21 @@ def home(request):
 def login(request):
     return render(request, 'login.html')
 
-def index(request):
-    context = {'RegisterForm' : RegisterForm}
-
-    return render(request, 'preferances.html', context ) 
-
- 
-
-def signup(request):
+def registered(request):
     formm = RegisterForm(request.POST )
     print(formm.data)    
 
     if formm.is_valid():
         print("Valid rcha")
         formm.save()
+    context = {'RegisterForm' : RegisterForm}
+
+    return render(request, 'registered.html', context ) 
+
+ 
+
+def signup(request):
+
     context = {'RegisterForm' : RegisterForm}
     return render(request, 'register.html', context ) 
 
