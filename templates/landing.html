@@ -79,81 +79,7 @@ Home
 
 
 
-<section id="pricing" class="bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-8 mx-auto text-center">
-                <h1>Pricing</h1>
-                <p>Choose what fits your requirement.</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing card-effect text-center">
-                    <h6>BASIC</h6>
-                     
-                    <h1> FREE</h1><h5>$0.00 per month</h5>
-                    <hr>
-                    <ul class="list-unstyled mb-4">
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs1.png' %} ">
-                            8 hours Session</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs2.png' %} ">
-                            2 Strategies</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs3.png' %} ">
-                            Less Frequency</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs4.png' %} ">
-                            Position Limit</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs5.png' %} ">
-                            5+ trading pairs</li>
-                    </ul>
-                    <button class="btn btn-primary">Get Plan</button>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing card-effect text-center">
-                    <h6>STANDARD</h6>
-                    <h1>$29.99 </h1><h5> per month</h5>
-                    <hr>
-                    <ul class="list-unstyled mb-4">
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs1.png' %} ">
-                            48 hours session</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs2.png' %} ">
-                            5 strategies</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs3.png' %} ">
-                            Reasonable frequency</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs4.png' %} ">
-                            No position limit</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs5.png' %} ">
-                            20+ trading pairs</li>
-                        </ul>
-                    <button class="btn btn-primary">Get Plan</button>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="pricing card-effect text-center">
-                    <h6>PREMIUM</h6>
-                    <h1>$69.99 </h1><h5>per month</h5>
-                    <hr>
-                    <ul class="list-unstyled mb-4">
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs1.png' %} ">
-                            Unlimited session</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs2.png' %} ">
-                            10 strategies</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs3.png' %} ">
-                            High frequency</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs4.png' %} ">
-                            No Position limit</li>
-                        <li><img class='bx bxs-check-circle' width="30" height="30"  src="{% static 'images/subs5.png' %} ">
-                        100+ trading pairs</li>
-                        </ul>
-                    <button class="btn btn-primary">Get Plan</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
+{% includes 'layouts/subscriptions.html'%}
 
 <section id="feedback">
     <div class="container">
@@ -184,8 +110,5 @@ Home
 
     </div>
 </section>
-
-
-
 
 {% endblock %}

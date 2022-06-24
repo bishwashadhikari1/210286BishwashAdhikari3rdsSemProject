@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+{% load static %}
+<section id="signup">
+    <div class="container">
+        <div class="row mb-5">
+            <div class=" col-md-12 mx-auto text-center">
+                <h1>Create Account</h1>
+            </div>
+        </div>
+
+            <form action="/registered/"  class="register-form row   justify-content-center" method="POST">
+                {% csrf_token %}
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="E-mail" name="email">
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="API Key" name="apikey">
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret">
+                </div>
+                <div class="col-md-12 d-grid">
+                    <input type="submit" class="btn btn-primary" value="Register"> 
+                </div>
+            </form>
+    </div>
+</section>
+{% endblock %} 

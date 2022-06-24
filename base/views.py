@@ -8,25 +8,3 @@ from base.forms import RegisterForm
 def home(request):
     return render(request, 'landing.html')
 
-def login(request):
-    return render(request, 'login.html')
-
-def registered(request):
-    formm = RegisterForm(request.POST )
-    print(formm.data)    
-
-    if formm.is_valid():
-        print("Valid rcha")
-        formm.save()
-    context = {'RegisterForm' : RegisterForm}
-
-    return render(request, 'registered.html', context ) 
-
- 
-
-def signup(request):
-
-    context = {'RegisterForm' : RegisterForm}
-    return render(request, 'register.html', context ) 
-
-   

@@ -1,10 +1,10 @@
 from django.db import models
-from sqlalchemy import true
+ 
 
 from base.models import Users
 class Preferances(models.Model):
-    # user = models.ForeignKey(Users, on_delete=models.CASCADE)
-    id = models.AutoField(primary_key=true, auto_created=true)
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True, auto_created=True)
     risk = models.FloatField()
     positionsize = models.IntegerField()
     noticker=models.IntegerField()

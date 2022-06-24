@@ -1,4 +1,7 @@
 django
 pymysql
 mysqlclient
-
+pandas
+numpy
+dotenv
+python-binance
