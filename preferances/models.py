@@ -1,9 +1,7 @@
 from django.db import models
- 
-
-from base.models import Users
+from django.contrib.auth.models import User
 class Preferances(models.Model):
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     id = models.AutoField(primary_key=True, auto_created=True)
     risk = models.FloatField()
     positionsize = models.IntegerField()

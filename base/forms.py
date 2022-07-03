@@ -1,6 +1,6 @@
 from django import forms
-from base.models import Users
+from django.contrib.auth.models import User
 class RegisterForm(forms.ModelForm):
     class Meta:
-        model = Users
+        model = User
         fields = "__all__"

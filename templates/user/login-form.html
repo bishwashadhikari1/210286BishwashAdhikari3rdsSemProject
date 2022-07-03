@@ -13,7 +13,8 @@ Log In
             </div>
         </div>
 
-            <form action="" class="register-form row   justify-content-center">
+            <form action="" class="register-form row   justify-content-center" method="POST">
+                {% csrf_token  %}
                 <div class="col-md-12">
                     <input type="text" class="form-control" placeholder="Username" name="username">
                 </div>
@@ -22,7 +23,7 @@ Log In
                     <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
                 <div class="col-md-12 d-grid">
-                    <a href="/preferances"> <button class="btn btn-primary">Log In</button></a>
+                    <a href="/preferances"> <button class="btn btn-primary" value="Login">Log In</button></a>
                 </div>
             </form>
     </div>
