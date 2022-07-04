@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{% static 'css/custom/userbase.css' %} ">
     <link rel="stylesheet" href="{% static 'css/custom/preferances.css' %} "> 
     <link rel="stylesheet" href="{% static 'css/custom/landing.css' %} "> 
-
+    {% block css %}
+    {% endblock %}
 
     <title>
         {% block title %}
@@ -31,5 +32,8 @@
     {% load static %}
     <script src = "{% static 'js/custom/userbase.js' %} "> </script>
 
+    {% block js %}
+
+    {% endblock %}
 </body>
 </html>
