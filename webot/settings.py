@@ -73,7 +73,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  'webot_db',
         'USER':'root',
-        'PASSWORD':'root',
+        'PASSWORD':'@K47headshot',
         'HOST' :'localhost',
         'PORT': '3306' ,
         'OPTIONS': {

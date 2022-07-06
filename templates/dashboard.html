@@ -4,12 +4,19 @@
 Dashboard
 {% endblock %}
 {% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom/dashboard.css' %} "> 
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 {% endblock %}
 
 {% block content %}
 
-<div class=" container container-fluid row">
+<div class=" container container-fluid row dashboard d-flex flex-column">
+    <button type="button" class="btn btn-primary">Start</button>
+     
+    <button type="button" class="btn btn-primary mt-3">Stop</button>
+     
     <div class="row-lg-6">
         <canvas id="lineChart">
         </canvas>

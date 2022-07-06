@@ -1,7 +1,8 @@
-from cmath import log
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import  authenticate, login 
+from django.contrib.auth import  authenticate, login
+
+from preferances.models import Preferances 
 
 def login_page(request):
     if request.method == "POST":
@@ -25,6 +26,11 @@ def register_page(request):
             password = request.POST['password'],
             email = request.POST['email'],
         )
+        userr = User.objects.get(username = request.POST['username'])
+ 
+        pref = Preferances(user= userr )
+        pref.save()    
+
         return redirect("/login")
     else:
         return render(request, "user/register-form.html")
