@@ -1,11 +1,9 @@
-import os
+
 from binance import Client, BinanceSocketManager
-from dotenv import load_dotenv
 
-load_dotenv()
-apikey = os.getenv("api_key")
-apisecret = os.getenv("api_secret")
+def session(apikey,apisecret):
+    return Client(apikey, apisecret)
 
-session = Client(apikey, apisecret)
 
-bm = BinanceSocketManager(session)
+def bsm(sess):
+    return BinanceSocketManager(sess)

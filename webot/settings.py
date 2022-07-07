@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'preferances.apps.PreferancesConfig',
     'user.apps.UserConfig',
+    'channels',
+    'helpers',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webot.wsgi.application'
+ASGI_APPLICATION = 'webot.asgi.application'
+
 
 
 # Database
@@ -73,7 +78,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  'webot_db',
         'USER':'root',
-        'PASSWORD':'@K47headshot',
+        'PASSWORD':'root',
         'HOST' :'localhost',
         'PORT': '3306' ,
         'OPTIONS': {

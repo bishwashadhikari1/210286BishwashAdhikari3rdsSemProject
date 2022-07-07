@@ -5,7 +5,7 @@ Dashboard
 {% endblock %}
 {% block css %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/custom/dashboard.css' %} "> 
+<link rel="stylesheet" href="{% static 'css/custom/dashboard.css' %} ">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 {% endblock %}
@@ -13,63 +13,71 @@ Dashboard
 {% block content %}
 
 <div class=" container container-fluid row dashboard d-flex flex-column">
-    <button type="button" class="btn btn-primary">Start</button>
-     
-    <button type="button" class="btn btn-primary mt-3">Stop</button>
-     
-    <div class="row-lg-6">
-        <canvas id="lineChart">
-        </canvas>
-    </div>
-    <div class="row-lg-3">
-        <h2>Positions</h2>
-        <table class="table">
-        
-            <tr>
-                <th scope="col">Ticker</th>
-                <th scope="col">Entry</th>
-                <th scope="col">Mark</th>
-                <th scope="col">Size</th>
-                <th scope="col">PnL</th>
-                <th scope="col">ROI</th>
-            </tr>
-            {% for position in positions %}
-            <br>
-            <tr>
-                <th scope="row">{{position.symbol}}</th>
-                <th>{{position.entryprice}}</th>
-                <th>{{position.markPrice}}</th>
-                <th>{{position.size}}</th>
-                <th>{{position.pnl}}</th>
-                <th>{{position.roi}}</th>
-            </tr>
-            {% endfor %}
-        </table>
+    <h3>
+        {% for preferance in preferances %}
+        <p>{{preferance.prefname}} : {{preferance.value}}</p>
+        {% endfor %}
+    </h3>
+    <a href="/rebase">
+    <button type="button" id="start-bot-btn" class="btn btn-primary" onclick="startbot()">Start</button>
+</a>
+    <button type="button" id="stop-bot-btn" class="btn btn-primary mt-3 " onclick="stopbot()">Stop</button>
+    <a href="/refresh"><button>refresh</button></a>
+    <div class="container" id="container-after-start">
+        <div class="row-lg-6">
+            <canvas id="lineChart">
+            </canvas>
+        </div>
+        <div class="row-lg-3">
+            <h2>Positions</h2>
+            <table class="table">
 
-    </div>
-    <div class="row-lg-3">
-        <h2>Previous Trades</h2>
-        <table class="table">
-            <tr>
-                <th scope="col">Ticker</th>
-                <th scope="col">Entry</th>
-                <th scope="col">Mark</th>
-                <th scope="col">Size</th>
-                <th scope="col">PnL</th>
-                <th scope="col">ROI</th>
-            </tr>
-            {% for position in positions %}
-            <br>
-            <tr>
-                <th scope="row">{{position.symbol}}</th>
-                <th>{{position.entryprice}}</th>
-                <th>{{position.markPrice}}</th>
-                <th>{{position.size}}</th>
-                <th>{{position.pnl}}</th>
-                <th>{{position.roi}}</th>
-            </tr>
-            {% endfor %}
-        </table>
+                <tr>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Entry</th>
+                    <th scope="col">Mark</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">PnL</th>
+                    <th scope="col">ROI</th>
+                </tr>
+                {% for position in positions %}
+                <br>
+                <tr>
+                    <th scope="row">{{position.symbol}}</th>
+                    <th>{{position.entryprice}}</th>
+                    <th>{{position.markPrice}}</th>
+                    <th>{{position.size}}</th>
+                    <th>{{position.pnl}}</th>
+                    <th>{{position.roi}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <div class="row-lg-3">
+            <h2>Previous Trades</h2>
+            <table class="table">
+                <tr>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Entry</th>
+                    <th scope="col">Mark</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">PnL</th>
+                    <th scope="col">ROI</th>
+                </tr>
+                {% for position in positions %}
+                <br>
+                <tr>
+                    <th scope="row">{{position.symbol}}</th>
+                    <th>{{position.entryprice}}</th>
+                    <th>{{position.markPrice}}</th>
+                    <th>{{position.size}}</th>
+                    <th>{{position.pnl}}</th>
+                    <th>{{position.roi}}</th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 </div>
 
@@ -77,5 +85,11 @@ Dashboard
 
 {% block js %}
 {% load static %}
+<script>   
+var pnldata = JSON.parse("{{data|escapejs}}")
+console.log(pnldata)
+</script>
 <script src="{% static 'js/custom/graph.js' %} "> </script>
+<script src="{% static 'js/custom/dashboard.js' %} "> </script>
+
 {% endblock %}

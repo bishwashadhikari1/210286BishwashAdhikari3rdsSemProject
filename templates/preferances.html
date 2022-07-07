@@ -7,89 +7,89 @@ Preferances
 {% block content %}
 
 <h2>
-Preferances
+    Preferances
 </h2>
-<form action="/preferancesmodified/" class = 'feedback-form' method="POST">
+<form action="/preferancesmodified/" class='feedback-form' method="POST">
     {% csrf_token %}
-    <h3>
-    <label for="risk">RISK</label>
-    <select name="risk" id="risk">
-        <option value="0.5">0.5%</option>
-        <option value="1">1%</option>
-        <option value="1.5">1.5%</option>
-        <option value="2">2%</option>
-        <option value="2.5">2.5%</option>
+    <h3 class="preferances-form">
+        <label for="risk">RISK</label>
+        <select name="risk" id="risk" class="form-select">
+            <option value="0.5">0.5%</option>
+            <option value="1">1%</option>
+            <option value="1.5">1.5%</option>
+            <option value="2">2%</option>
+            <option value="2.5">2.5%</option>
 
-    </select>
-    <br>
-    <label for="positionsize">Position Size</label>
-    <select name="positionsize" id="positionsize">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-        <option value="150">150</option>
-        <option value="200">200</option>
-        <option value="300">300</option>
-        <option value="500">500</option>
-        <option value="700">700</option>
-        <option value="1000">1000</option>
-        <option value="1500">1500</option>
-        <option value="2000">2000</option>
-    </select>
-    <br>
-    <label for="noticker">Number of Tickers</label>
-    <select name="noticker" id="noticker">
-        <option value="1">1</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="40">40</option>
-        <option value="70">70</option>
-        <option value="100">100</option>
+        </select>
+        <br>
+        <label for="positionsize">Position Size</label>
+        <select name="positionsize" id="positionsize" class="form-select">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="500">500</option>
+            <option value="700">700</option>
+            <option value="1000">1000</option>
+            <option value="1500">1500</option>
+            <option value="2000">2000</option>
+        </select>
+        <br>
+        <label for="noticker">Number of Tickers</label>
+        <select name="noticker" id="noticker" class="form-select">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="40">40</option>
+            <option value="70">70</option>
+            <option value="100">100</option>
 
-    </select>
-    <br>
-    <label for="strategy">Strategy</label>
-    <select name="strategy" id="strategy">
-        <option value="rsi">RSI</option>
-        <option value="macd">MACD</option>
-        <option value="cc">Candle Close</option>
-        <option value="ema">EMA</option>
-        <option value="sma">SMA</option>
-    </select>
-    <br>
-    <label for="timeframe" >Time Frame</label>
-    <select name="timeframe" id="timeframe">
-        <option value="1">1 min</option>
-        <option value="5">5 min</option>
-        <option value="15">15 min</option>
-        <option value="30">30 min</option>
-        <option value="45">45 min</option>
-        <option value="60">1 hour</option>
-        <option value="90">1.5 hours</option>
-        <option value="120">2 hours</option>
-        <option value="240">4 hours</option>
-    </select>
-    <br>
-    <label for="rrratio">Risk Reward Ratio</label>
-    <select name="rrratio" id="rrratio">
-        <option value="0.5">0.5</option>
-        <option value="1">1</option>
-        <option value="1.5">1.5</option>
-        <option value="2">2</option>
-        <option value="2.5">2.5</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="10">10</option>
-    </select>
-    <br>
-    <input class="btn modify-btn btn-parameter" type="submit" id="modify" value="Modify">
-</h3>
+        </select>
+        <br>
+        <label for="strategy">Strategy</label>
+        <select name="strategy" id="strategy" class="form-select">
+            <option value="rsi">RSI</option>
+            <option value="macd">MACD</option>
+            <option value="cc">Candle Close</option>
+            <option value="ema">EMA</option>
+            <option value="sma">SMA</option>
+        </select>
+        <br>
+        <label for="timeframe">Time Frame</label>
+        <select name="timeframe" id="timeframe" class="form-select">
+            <option value="1">1 min</option>
+            <option value="5">5 min</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">1 hour</option>
+            <option value="90">1.5 hours</option>
+            <option value="120">2 hours</option>
+            <option value="240">4 hours</option>
+        </select>
+        <br>
+        <label for="rrratio">Risk Reward Ratio</label>
+        <select name="rrratio" id="rrratio" class="form-select">
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="10">10</option>
+        </select>
+        <br>
+        <input class="btn modify-btn btn-parameter" type="submit" id="modify" value="Modify">
+    </h3>
 
 </form>
 
