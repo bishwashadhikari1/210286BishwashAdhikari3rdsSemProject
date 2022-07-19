@@ -16,19 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from dashboard.views import dashboard
-
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
- 
     path('', include('base.urls')),
     path('', include('preferances.urls')),
     path('', include('dashboard.urls')),
     path('', include('subscription.urls')),
     path('' , include('user.urls')),
-
-
+    path('' , include('dash.urls')),
 
 ]
