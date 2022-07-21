@@ -1,12 +1,11 @@
-from core import session
-from placeorder import order
-from dbrebase import store_orders
+from helpers.placeorder import order
+from helpers.dbrebase import store_orders
 import pandas as pd
 import talib, numpy
 
-from reduction import ticker_in_order
+from helpers.reduction import ticker_in_order
 
-def candleclose_strategy(time_frame,trade_size,rr,list_of_tickers):
+def candleclose_strategy(time_frame,trade_size,rr,list_of_tickers, session):
     current_orders = []
     tf = str(time_frame) + "m"
     tf2 = str(2*time_frame)+"m"
@@ -31,11 +30,11 @@ def candleclose_strategy(time_frame,trade_size,rr,list_of_tickers):
             tpp = entry + rr*(entry - candle_low)
 
         positionsize=  trade_size / entry
-        current_orders = (order(tick=tick, positionsize=positionsize, side = sidee, diee=diee, entry=entry, tp=tpp, sl=sll, pSide = pSide))
-        store_orders(current_orders, tick)
+        current_orders = (order(tick=tick, positionsize=positionsize, side = sidee, diee=diee, entry=entry, tp=tpp, sl=sll, pSide = pSide, session=session))
+        store_orders(current_orders, tick, session=session)
 
 
-def rsi_strategy(time_frame,trade_size,rr,list_of_tickers, risk_percentage):
+def rsi_strategy(time_frame,trade_size,rr,list_of_tickers, risk_percentage, session):
     current_order=[]
     candle_closed=[]
     tf = str(time_frame) + "m"
@@ -57,23 +56,23 @@ def rsi_strategy(time_frame,trade_size,rr,list_of_tickers, risk_percentage):
         print(candle_closed)
         last_rsi = talib.RSI(numpy.array(candle_closed),period)[-1]
         print(last_rsi)
-        if (ticker_in_order(tick)== False):
+        if (ticker_in_order(tick, session)== False):
             if last_rsi > overbought:
                 sidee='SELL'
                 diee='BUY'
                 pSide='SHORT'
                 tp = float(entry) *(1-(rr*risk_percentage/100))
                 sl = float(entry) *(1+(risk_percentage/100))
-                current_orders = order(tick=tick, positionsize=position_size, side = sidee, diee=diee, entry=entry, tp=tp, sl=sl, pSide = pSide)
-                store_orders(current_orders, tick)
+                current_orders = order(tick=tick, positionsize=position_size, side = sidee, diee=diee, entry=entry, tp=tp, sl=sl, pSide = pSide, session=session)
+                store_orders(current_orders, tick, session)
             elif last_rsi < oversold:
                 sidee='BUY'
                 diee='SELL'
                 pSide='LONG'
                 sl = entry *(1-(risk_percentage/100))
                 tp = entry *(1+(rr*risk_percentage/100))
-                current_orders = order(tick=tick, positionsize=position_size, side = sidee, diee=diee, entry=entry, tp=tp, sl=sl, pSide = pSide)
-                store_orders(current_orders, tick)
+                current_orders = order(tick=tick, positionsize=position_size, side = sidee, diee=diee, entry=entry, tp=tp, sl=sl, pSide = pSide, session=session)
+                store_orders(current_orders, tick, session=session)
 
 
 

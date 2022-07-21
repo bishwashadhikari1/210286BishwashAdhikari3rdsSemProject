@@ -1,9 +1,8 @@
 
-from core import session
 import sqlite3
-def reduceonly():
+def reduceonly(session):
     try:
-        current_orders = order_list()
+        current_orders = order_list(session)
         db = sqlite3.connect('orders.db')
         c = db.cursor()
         print(current_orders)
@@ -30,7 +29,7 @@ def reduceonly():
     except:
         pass
 
-def order_list():
+def order_list(session):
     orders_ids = []
     try:
         all_ord = session.futures_get_open_orders()
@@ -38,9 +37,9 @@ def order_list():
             orders_ids.append(ord['clientOrderId'])
         return orders_ids
     except:
-        print('Error appending orders')
+        pass
 
-def ticker_in_order(tick):
+def ticker_in_order(tick, session):
     orders = session.futures_get_open_orders()
     for order in orders:
         if tick== order['symbol']:

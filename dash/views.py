@@ -23,13 +23,13 @@ def event_triger():
     
 
 def msgfromoutside(request, username):
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)('apiinfo',{
-        'type':'apiInformation',
-        'key':request.user.first_name,
-        'secret': request.user.last_name
-    }   
-    )
+    # channel_layer = get_channel_layer()
+    # async_to_sync(channel_layer.group_send)('apiinfo',{
+    #     'type':'apiInformation',
+    #     'key':request.user.first_name,
+    #     'secret': request.user.last_name
+    # }   
+    # )
     print('message sent')
     return render(request, 'testgraph.html', context={'text':'5','username':username})
 

@@ -1,6 +1,6 @@
-from core import session
 
-def precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide):
+
+def precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide, session):
     actual_order = session.futures_create_order(
         symbol=tick,
         side=side,
@@ -33,9 +33,9 @@ def precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide):
     oId=actual_order['clientOrderId']
     return [pId, sId,oId]
 
-def order(tick, positionsize, side, diee, entry, tp, sl, pSide):
+def order(tick, positionsize, side, diee, entry, tp, sl, pSide, session):
     try:
-        return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide)
+        return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide, session)
     except:
         try:
             positionsiz= "{:.4f}".format(positionsize)
@@ -44,7 +44,7 @@ def order(tick, positionsize, side, diee, entry, tp, sl, pSide):
             tp=float(tpp)
             sll= "{:.4f}".format(sl)
             sl=float(sll)            
-            return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide)
+            return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide, session)
         except:
             try:
                 positionsiz= "{:.3f}".format(positionsize)
@@ -53,7 +53,7 @@ def order(tick, positionsize, side, diee, entry, tp, sl, pSide):
                 tp=float(tpp)
                 sll= "{:.3f}".format(sl)
                 sl=float(sll)            
-                return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide)
+                return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide, session)
             except:
                 try:
                     tpp= "{:.2f}".format(tp)
@@ -62,11 +62,11 @@ def order(tick, positionsize, side, diee, entry, tp, sl, pSide):
                     sl=float(sll) 
                     positionsiz= "{:.2f}".format(positionsize)
                     positionsize=float(positionsiz)
-                    return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide)
+                    return precision_order(tick, positionsize, side, diee, entry, tp, sl, pSide, session)
                 except:
                     print('order failed', tick)
 
-def leverage_change(list_of_tickers):
+def leverage_change(list_of_tickers,session):
     print("CHANGING LEVERAGE...")
     for tick in list_of_tickers:
         try:
