@@ -5,6 +5,9 @@ Log In
 {% endblock %}
 {% block content %}
 <h1 id="app">{{text}}</h1>
+<h2> Username : {{username}}</h2>
+
+{{groupname|json_script:"group-name"}}
 <div class="row">
     <div class="col-10 mx-auto mt-5">
         <canvas id="myChart" width="400" height="200">
@@ -13,6 +16,11 @@ Log In
     </div>
 </div>
 
+<script>
+    const groupName = JSON.parse(document.getElementById('group-name').textContent);
+    console.log(username);
+    var ws = new WebSocket('ws://' + window.location.host + '/ws/graph/'+ groupName + '/');
+</script>
 
 {% load static %}
 <script src="{% static 'js/custom/graph.js' %} "> </script>
