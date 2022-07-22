@@ -1,0 +1,21 @@
+.outer-card{
+border-radius: 15px;
+}
+
+.grey-color{
+    color: #2b2a2a;
+}
+.red-color{
+    background-color: rgb(179, 43, 43);
+}
+.red-color:hover{
+    background-color: rgb(61, 13, 13);
+    border-color:  rgb(61, 13, 13);
+}
+.wrapper-rap-text{
+    word-break: break-all;
+}
+
+.bdd{
+    border: 1px black solid;
+}

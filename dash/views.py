@@ -24,5 +24,5 @@ def dashboard(request, username):
 def static_dash(request, username):
     stopbot(session=session(request.user.first_name, request.user.last_name))
     pref = Preferances.objects.get(user_id = request.user.id)
-    return render(request, 'dashboard.html', context={'text':5, 'username':username, 'preferancesss' : pref})
+    return render(request, 'dashboard.html', context={'text':5, 'username':username, 'preferances' : pref})
 

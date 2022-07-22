@@ -8,7 +8,7 @@ from helpers.strategies import candleclose_strategy,rsi_strategy
 
 def choose_strategy(time_frame, trade_size, rr, list_of_tickers, strategy, risk_percentage, session):
 
-    if strategy == 'cc':
+    if strategy == 'candleclose':
         candleclose_strategy(time_frame,trade_size,rr,list_of_tickers, session)
     elif strategy =='rsi':
         rsi_strategy(time_frame,trade_size,rr,list_of_tickers, risk_percentage, session)

@@ -7,7 +7,7 @@ class Preferances(models.Model):
     risk = models.FloatField(default=1.0)
     positionsize = models.IntegerField(default=10)
     noticker=models.IntegerField(default=1)
-    strategy=models.CharField(max_length=5, default='rsi')
+    strategy=models.CharField(max_length=15, default='rsi')
     timeframe = models.IntegerField(default=30)
     rrratio = models.FloatField(default=1.5)
 

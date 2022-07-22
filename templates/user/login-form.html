@@ -22,8 +22,13 @@ Log In
                 <div class="col-md-12">
                     <input type="password" class="form-control" placeholder="Password" name="password">
                 </div>
-                <div class="col-md-12 d-grid">
-                    <a href="/preferances"> <button class="btn btn-primary" value="Login">Log In</button></a>
+                <div class = 'col-md-12 text-center err-msg' id="password-message-login">
+                    {% if error == 1 %}
+                    <p>Username and password doesn't match.</p>
+                    {% endif %}
+                </div>
+                <div class="col-md-12 text-center">
+                   <button class="btn btn-primary ma" value="Login">Log In</button>
                 </div>
             </form>
     </div>

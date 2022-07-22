@@ -14,10 +14,21 @@ Dashboard
 
 <div class=" container container-fluid row dashboard d-flex flex-column">
     <h3>
-        {% for preferance in preferancesss %}
-        <p>{{preferance.prefname}} : {{preferance.value}}</p>
-        {% endfor %}
+        Risk Percentage : {{preferances.risk}}
+        <br>
+        Position Size: {{preferances.positionsize}}
+        <br>
+        Number of tickers: {{preferances.noticker}}
+        <br>
+        Strategy : {{preferances.strategy}}
+        <br>
+        time frame: {{preferances.timeframe}}m
+        <br>
+        Risk to Reward Ratio: {{preferances.rrratio}}
     </h3>
+    <a href="/preferances">
+        <button type="button"class="btn btn-primary mb-2">Change Preferances</button>
+        </a>
     <a href="/graph/{{user.username}}">
     <button type="button" id="start-bot-btn" class="btn btn-primary">Start</button>
     </a>

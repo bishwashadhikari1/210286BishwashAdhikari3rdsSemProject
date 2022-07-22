@@ -12,31 +12,49 @@ Register
             </div>
         </div>
 
-            <form action="#"  class="register-form row   justify-content-center" method="POST">
+            <form action="#"  class="register-form row   justify-content-center" method="POST" id="form">
                 {% csrf_token %}
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Username" name="username" id="username">
+                </div>
+                
+                <div class="col-md-12 text-center err-msg" id="register-username-field">
+          
+                </div>
+        
+                <br>
+                <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="E-mail" name="email" id="email">
+                </div>
+                <div class="col-md-12 text-center err-msg" id="register-email-field">
+
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="E-mail" name="email">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                </div>
+                <div class="col-md-12 text-center err-msg" id="register-password-field">
+        
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="text" class="form-control" placeholder="API Key" name="apikey" id="apikey">
                 </div>
-                <br>
+<br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="API Key" name="apikey">
+                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret" id="apisecret">
                 </div>
-                <br>
-                <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret">
+                                
+                <div class="col-md-12 text-center err-msg" id="register-api-field">
+                    
                 </div>
-                <div class="col-md-12 d-grid">
-                    <input type="submit" class="btn btn-primary" value="Register"> 
+                <div class="col-md-12 text-center">
+                    <button  value="register" class="btn btn-primary ">Sign Up</button>
                 </div>
+
             </form>
     </div>
 </section>
+{% load static %}
+<script src="{% static 'js/custom/validation.js' %}"></script>
 {% endblock %} 
