@@ -2,14 +2,13 @@
 import datetime
 import math
 import websocket, json, time
-from helpers.dbrebase import rebase
 from helpers.placeorder import leverage_change
 from helpers.reduction import reduceonly
 from helpers.strategies import candleclose_strategy,rsi_strategy
 
 def choose_strategy(time_frame, trade_size, rr, list_of_tickers, strategy, risk_percentage, session):
 
-    if strategy == 'candleclose':
+    if strategy == 'cc':
         candleclose_strategy(time_frame,trade_size,rr,list_of_tickers, session)
     elif strategy =='rsi':
         rsi_strategy(time_frame,trade_size,rr,list_of_tickers, risk_percentage, session)
@@ -44,8 +43,6 @@ def startbot(timeframe, trade_size,rr,list_of_tickers,strategy, risk_percentage,
         else:
             reduceonly(session=session)
         ws.close()
-    # leverage_change(list_of_tickers, session=session)
-    # rebase(session=session)
     if timeframe<60:
         interval =str(timeframe)+"m"
     if timeframe>=60 and timeframe<=1440:
@@ -57,3 +54,54 @@ def startbot(timeframe, trade_size,rr,list_of_tickers,strategy, risk_percentage,
     ws = websocket.WebSocketApp(wws,on_message=closed_candle, on_close=closed)
     ws.run_forever()
     return({'pnl':upnl, 'time':timey})
+
+
+
+def stopbot(session):   
+    open_symbols_list = []
+    a = session.futures_position_information()
+    for b in a:
+        position=[]
+        if float(b['positionAmt']) !=0.0:  
+            sym = b['symbol']
+            session.futures_cancel_all_open_orders(symbol = sym)
+
+
+            position = [b['symbol'], b['positionSide'], b['positionAmt'], b['markPrice']]
+            open_symbols_list.append(position)
+
+
+    for position in open_symbols_list:
+        if position[1]=='SHORT':
+            side='BUY'
+            pSide='LONG'
+        else:
+            side='SELL'
+            pSide='SHORT'
+        try:
+            print(session.futures_create_order(
+            symbol=position[0],
+            side='BUY',
+            positionSide='SHORT',
+            type='STOP_MARKET',
+            quantity=abs(float(position[2])),
+            closePosition = True,
+            timeInForce= 'GTC',
+            stopPrice=float("{:.4}".format(position[3])),
+
+        ))
+        except:
+            try:
+                print(session.futures_create_order(
+                symbol=position[0],
+                side='BUY',
+                positionSide='SHORT',
+                type='TAKE_PROFIT_MARKET',
+                quantity=abs(float(position[2])),
+                closePosition = True,
+                timeInForce= 'GTC',
+                stopPrice=float("{:.4}".format(position[3])),
+
+                ))
+            except:
+                print('failed to close')

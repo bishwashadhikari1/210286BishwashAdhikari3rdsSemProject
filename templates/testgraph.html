@@ -1,10 +1,8 @@
-{% extends 'layouts/base.html' %}
-{% block title %}
-Log In
+{% extends 'layouts/userbase.html' %}
 
-{% endblock %}
-{% block content %}
-<h1 id="app">{{text}}</h1>
+
+
+<!-- <h1 id="app" class="">{{text}}</h1>
 <h2> Username : {{username}}</h2>
 
 {{username|json_script:"group-name"}}
@@ -14,11 +12,58 @@ Log In
 
         </canvas>
     </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+{% block title %}
+Dashboard
+{% endblock %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/custom/dashboard.css' %} ">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+{% endblock %}
+
+{% block content %}
+{{username|json_script:"group-name"}}
+
+<div class=" container container-fluid row dashboard d-flex flex-column">
+    <h3>
+        {% for preferance in preferances %}
+        <p>{{preferance.key}} : {{preferance.value}}</p><br>
+        {% endfor %}
+    </h3>
+    <a href="/dashboard/{{username}}">
+    <button type="button" id="stop-bot-btn" class="btn btn-primary mt-3 ">Stop</button></a>
+    <div class="container">
+        <div class="row-lg-6">
+            <canvas id="myChart" width="800", height="300">
+
+            </canvas>
+        </div>
+        <div class="row-lg-3">
+            <h2>Positions</h2>
+            <table class="table" id="postable">
+            
+                    
+            </table>
+
+        </div>
+        <div class="row-lg-3">
+            <h2>Previous Trades</h2>
+            <table class="table" id ="historytable">
+            </table>
+        </div>
+    </div>
 </div>
-
-<script>
-
-</script>
 
 {% load static %}
 <script src="{% static 'js/custom/graph.js' %} "> </script>
