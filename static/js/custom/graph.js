@@ -48,7 +48,10 @@ socket.onmessage = function (e) {
         tablehtml += "<tr>";
         var temphtml = '<th scope = "row">' + lofposition[i][0] + '</th>';
         tablehtml += temphtml;
-        var temphtml = '<th>' + lofposition[i][1] + '</th>';
+        var sym = lofposition[i][1]
+        var symnousd = sym.slice(0, (sym.length-4));
+        iconurl = '<img src="https://www.cryptofonts.com/img/icons/'+ symnousd.toLowerCase() + '.svg" width="20px" height="20px">'
+        var temphtml = '<th>' + lofposition[i][1]  + iconurl + '</th>';
         tablehtml += temphtml;
         let ep = +lofposition[i][2];
 
@@ -71,8 +74,12 @@ socket.onmessage = function (e) {
         tablehtml += '</tr>';
     }
     for(var i = 0 ; i < historyy.length/2; i++){
+        var sym = historyy[i*2]
+        var symnousd = sym.slice(0, (sym.length-4));
+        iconurl = '<img src="https://www.cryptofonts.com/img/icons/'+ symnousd.toLowerCase() + '.svg" width="20px" height="20px">'
         historyhtml += "<tr>";
-        var temphtml = "<th scope = row>" + historyy[i*2] + "</th>";
+        var temphtml = "<th scope = row>" + historyy[i*2] + iconurl + "</th>";
+
         historyhtml += temphtml;
         if (historyy[i*2+1] > 0) {
             var signal = 'green';
@@ -87,7 +94,6 @@ socket.onmessage = function (e) {
     }
     document.getElementById('postable').innerHTML = tablehtml;
     document.getElementById('historytable').innerHTML = historyhtml;
-
 
     console.log(djangoData);
 }
