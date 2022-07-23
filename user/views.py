@@ -65,6 +65,7 @@ def edit_profile(request):
         ewwser.last_name = request.POST['apisecret']
         ewwser.email = request.POST['email']
         ewwser.save()
+        return redirect('/profile')
     return render(request, 'profileedit.html')
 
 @login_required

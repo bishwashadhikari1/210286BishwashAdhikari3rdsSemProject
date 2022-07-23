@@ -16,7 +16,6 @@ from preferances.models import Preferances
 
 @login_required
 def dashboard(request, username):
-
     return render(request, 'testgraph.html', context={'text':'5','username':username})
 
 

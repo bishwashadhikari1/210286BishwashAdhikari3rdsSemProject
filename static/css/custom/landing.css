@@ -2,7 +2,7 @@
 
 :root {
     --primary:  rgb(43, 171, 43);
-    --dark: #4f6e51;
+    --dark: #028a6c;
     --body: rgb(255, 255, 255);
     --white: #ffffff;
     --box-shadow: 0 8px 22px rgba(18, 18, 18, 0.1);
@@ -192,7 +192,7 @@ form .form-control {
 }
 
 .footer-bottom {
-    background-color: #234429;
+    background-color: #237732;
 }
 
 .btn-primary{

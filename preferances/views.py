@@ -1,11 +1,10 @@
 
-from ast import Sub
-from django.forms import TimeField
 from django.shortcuts import  render
 from preferances.forms import PreferancesForm
 from django.contrib.auth.decorators import login_required
 from preferances.models import Preferances
 from subscription.models import Subscription
+
 @login_required(login_url='/user/login')
 def preferances(request):
     sub = Subscription.objects.get(owner = request.user)
