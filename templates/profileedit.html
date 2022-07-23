@@ -1,44 +1,45 @@
 {% extends 'layouts/userbase.html' %}
 
 {% block title %}
-Edit Profile 
+Edit Profile
 {% endblock %}
 
 {% block content %}
 
-<section >
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-md-9 col-lg-7 col-xl-5">
-          <div class="card outer-card">
-            <div class="card-body p-4">
-              <div class="d-flex text-black">
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-md-9 col-lg-7 col-xl-5">
+        <div class="card outer-card">
+          <div class="card-body p-4">
+            <div class="d-flex text-black">
 
-                <div class="flex-grow-1 ms-3 wrapper-rap-text">
+              <div class="flex-grow-1 ms-3 wrapper-rap-text">
                 <form action="" method="post" class="form">
-                    {% csrf_token %}
-                    <div>
-                        <input class='mb-1 form-control bdd' type="email" name="email" placeholder="email" name="email" value="{{request.user.email}}">
-                    </div>
-                    <div>
-                        <input  class='mb-1 form-control bdd' type="text" name="apikey" id="apikey" placeholder="APIKEY" value="{{request.user.first_name}}">
-                    </div>
-                    <div>
-                        <input  class='mb-1 form-control bdd' type="text" name="apisecret" id="apisecret" placeholder="API SECRET" value="{{request.user.last_name}}">
-                    </div>
-                    <button  class='btn btn-primary mb-1 ' type="submit">Save</button>
-<button  class='btn btn-danger mb-1 ' type="submit">                    <a href="/profile"> Cancel</a></button>
-
-        
-
+                  {% csrf_token %}
+                  <div>
+                    <input class='mb-1 form-control bdd' type="email" name="email" placeholder="email" name="email"
+                      value="{{request.user.email}}">
                   </div>
-                </div>
+                  <div>
+                    <input class='mb-1 form-control bdd' type="text" name="apikey" id="apikey" placeholder="APIKEY"
+                      value="{{request.user.first_name}}">
+                  </div>
+                  <div>
+                    <input class='mb-1 form-control bdd' type="text" name="apisecret" id="apisecret"
+                      placeholder="API SECRET" value="{{request.user.last_name}}">
+                  </div>
+                  
+                  <button class='btn btn-primary mb-1 ' type="submit"><a href="/profile"></a>Save</button>
+                  <button class='btn btn-danger mb-1 '> <a href="/profile"> Cancel</a></button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+  </div>
+</section>
 
 {% endblock %}

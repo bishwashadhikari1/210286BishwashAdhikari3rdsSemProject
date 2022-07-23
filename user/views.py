@@ -4,7 +4,8 @@ from django.contrib.auth import  authenticate, login
 from django.contrib.auth.decorators import login_required
 from sqlalchemy import true
 from core.core import session
-from preferances.models import Preferances 
+from preferances.models import Preferances
+from subscription.models import Subscription 
 
 def login_page(request):
     error=0
@@ -41,10 +42,12 @@ def register_page(request):
             email = request.POST['email'],
         )
         userr = User.objects.get(username = request.POST['username'])
- 
+
         pref = Preferances(user= userr )
         pref.save()    
-
+        subs = Subscription(owner = userr)
+        subs.save()
+        
         return redirect("/login")
     else:
         return render(request, "user/register-form.html")
@@ -63,3 +66,9 @@ def edit_profile(request):
         ewwser.email = request.POST['email']
         ewwser.save()
     return render(request, 'profileedit.html')
+
+@login_required
+def delete_user(request):
+    youser  = User.objects.get(username = request.user.username)
+    youser.delete()
+    return redirect('/signup')

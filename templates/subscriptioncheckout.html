@@ -1,0 +1,101 @@
+{% extends 'layouts/userbase.html' %}
+
+{% block title %}
+Upgrade
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="text-dark">
+    <form action="" class="container subscheckout row " method="POST">
+        {% csrf_token %}
+        <p>Go back to <a href="/subscription"> Subscription</a>.</p>
+        <div class="col-lg-4">
+            <label for="network">Network <i class="fa fa-signal"></i></label>
+            <select name="network" id="network" class="form-select" onchange="changeNetwork(this)">
+                <option value="trc20" selected>TRC20</option>
+                <option value="bsc">BSC</option>
+                <option value="erc20">ERC20</option>
+                <option value="avax">AVAX C-Chain</option>
+                <option value="polygon">Polygon</option>
+
+
+            </select>
+            <label for="currency">Currency <i class="fa fa-dollar"></i></label>
+            <select name="currency" id="currency" class="form-select">
+                <option value="TRX" selected>USDT</option>
+
+            </select>
+            <label for="time">Time <i class="fa fa-hourglass"></i></label>
+
+            <select name="time" id="time" class="form-select">
+                <option value=1 selected>1 MONTH</option>
+                <option value=3>3 MONTHS</option>
+                <option value=6>6 MONTHS</option>
+                <option value=12>1 YEAR</option>
+
+            </select>
+
+        </div>
+        <div class="col-lg-4">
+            {% if plan == 'standard' %}
+            <div class="pricing card-effect text-center">
+                <h6>STANDARD</h6>
+                <h1>$29.99 </h1>
+                <h5> per month</h5>
+                <hr>
+                <ul class="list-unstyled mb-4">
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs1.png' %} ">
+                        48 hours session</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs2.png' %} ">
+                        5 strategies</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs3.png' %} ">
+                        Reasonable frequency</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs4.png' %} ">
+                        No position limit</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs5.png' %} ">
+                        20+ trading pairs</li>
+                </ul>
+            </div>
+            {% elif plan == 'premium' %}
+
+            <div class="pricing card-effect text-center">
+                <h6>PREMIUM</h6>
+                <h1>$69.99 </h1>
+                <h5>per month</h5>
+                <hr>
+                <ul class="list-unstyled mb-4">
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs1.png' %} ">
+                        Unlimited session</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs2.png' %} ">
+                        10 strategies</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs3.png' %} ">
+                        High frequency</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs4.png' %} ">
+                        No Position limit</li>
+                    <li><img class='bx bxs-check-circle' width="30" height="30" src="{% static 'images/subs5.png' %} ">
+                        100+ trading pairs</li>
+                </ul>
+            </div>
+
+            {% endif %}
+        </div>
+        <div class="col-lg-4">
+            {% load static %}
+            <img id="qrimg" alt="" src="{% static 'images/trc20.png' %}">
+        </div>
+        <div class="col-lg-6  d-flex mt-3">
+
+            <input type="text" class=" txnidinput mr-3 col-lg-6 " placeholder="TRANSACTION ID " name="txnid" id="txnid">
+            <button class="btn btn-primary col-lg-3 mb-3" value="submit">Submit</button>
+
+
+        </div>
+
+</div>
+</form>
+</div>
+{% load static %}
+<script src="{% static 'js/custom/subscription.js'%}"></script>
+
+{% endblock %}

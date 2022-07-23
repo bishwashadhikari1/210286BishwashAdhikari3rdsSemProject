@@ -5,17 +5,15 @@ Preferances
 {% endblock %}
 
 {% block content %}
+<div class="container justify-content-center align-items-center">
 
-<h2>
-    Preferances
-</h2>
-<form action="/preferances/" class='feedback-form' method="POST" enctype="multipart/form-data"
-
-Message @DUHHH
->
+<form action="/preferances/" class='feedback-form' method="POST" enctype="multipart/form-data"> 
+    <h2>
+        Preferances
+    </h2>
     {% csrf_token %}
     <h3 class="preferances-form">
-        <label for="risk">RISK</label>
+        <label for="risk">RISK <i class="fa fa-bacteria" ></i></label>
         <select name="risk" id="risk" class="form-select">
             <option value ={{preferances.risk}} selected>{{preferances.risk}}</option>
             <option value=0.5>0.5%</option>
@@ -104,5 +102,6 @@ Message @DUHHH
     </h3>
 
 </form>
+</div>
 
 {% endblock %}

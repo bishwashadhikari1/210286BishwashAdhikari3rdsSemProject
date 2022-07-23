@@ -10,8 +10,8 @@
 :root{
     /* ===== Colors ===== */
     --body-color: #E4E9F7;
-    --sidebar-color: rgb(80, 75, 75);
-    --primary-color: #2ba840;
+    --sidebar-color: rgb(34, 53, 58);
+    --primary-color: #148a28;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #ffffff;
@@ -51,14 +51,12 @@ body{
     width: 88px;
 }
 
-@media screen and (width < 500) {
-    .sidebar.close{
-        width:0px;
-    }
+@media screen and (max-width:600px) {
     .sidebar header .image img{
         display: none;
-     
-    }  
+
+    } 
+
 }
   
 
@@ -146,12 +144,10 @@ body{
 
 }
 
-.sidebar li a:hover{
-    background-color: var(--primary-color);
-}
+
 
 .sidebar li a:hover .text{
-    color: var(--sidebar-color);
+    color: black;
     padding-left: 20%;
 }
 
@@ -176,10 +172,10 @@ body{
 .home{
     position: absolute;
     top: 0;
-    left: 300px;
     height: 100vh;
-    width: calc(100% - 300px);
-    background-color: var(--body-color);
+    left: 240px;
+    width: calc(100% - 240px);
+    background-image: ('/static/images/overlay.png');
     transition: var(--tran-05);
 }
 .home .text{
@@ -190,8 +186,37 @@ body{
 }
 
 .sidebar.close ~ .home{
-    left: 110px;
+    left: 85px;
     height: 100vh;
-    width: calc(100% - 110px);
+    width: calc(100% - 85px);
 }
+
+
+.plan > div > div > ul > li {
+    color: black;
+}
+
+.subcheckout{
+    width: 100%;
+}
+.subcheckout > div{
+    height: 400px;
+}
+.txnidinput{
+    padding-left: 10px;  
+    border: 1px solid black;
+    height: 50px;
+    width: 300px;
+
+}
+.subselbtn{
+    border: 1px solid black;
+    background-color: none;
+    border-radius: 30%;
+    margin: 10px;
+}
+#qrimg{
+    width: 100%;
+    height: 100%;
+}  
 

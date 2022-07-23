@@ -5,24 +5,47 @@ Profile
 {% endblock %}
 
 {% block content %}
-<section >
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-md-9 col-lg-7 col-xl-5">
-          <div class="card outer-card">
-            <div class="card-body p-4">
-              <div class="d-flex text-black">
+<section>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-md-9 col-lg-7 col-xl-5">
+        <div class="card outer-card">
+          <div class="card-body p-4">
+            <div class="d-flex text-black">
 
-                <div class="flex-grow-1 ms-3 wrapper-rap-text">
-                  <h5 class="mb-1 ">{{request.user.username}}</h5>
-                  <p class="mb-2 pb-1 grey-color" >{{request.user.email}}</p>
-                  <p class="mb-2 pb-1 grey-color " >APIKEY:{{request.user.first_name}}</p>
-                  <p class="mb-2 pb-1 grey-color" >API SECRET :xxxxxxxxxxxxxxxxxxxx</p>
+              <div class="flex-grow-1 ms-3 wrapper-rap-text">
+                <h5 class="mb-1 ">{{request.user.username}}</h5>
+                <p class="mb-2 pb-1 grey-color">{{request.user.email}}</p>
+                <p class="mb-2 pb-1 grey-color ">APIKEY:{{request.user.first_name}}</p>
+                <p class="mb-2 pb-1 grey-color">API SECRET :xxxxxxxxxxxxxxxxxxxx</p>
 
-                  <div class="d-flex pt-1">
-                    <button type="button" class="btn btn-primary me-1 flex-grow-1"><a href="/profile/edit/">EDIT</button></a>
-                    <button type="button" class="red-color btn btn-danger flex-grow-1 " id="deleteuseraccount">DELETE</button>
-                   
+                <div class="d-flex pt-1">
+                  <button type="button" class="btn btn-primary me-1 flex-grow-1"><a
+                      href="/profile/edit/">EDIT</button></a>
+
+                  <button type="button" class="  red-color btn btn-danger flex-grow-1 butt"
+                    onclick="document.getElementById('id01').style.display='block'">DELETE</button>
+
+                  <div id="id01" class="modal">
+                    <form class="modal-content">
+                      <div class="container-modall actual-modal">
+                        <h1>DELETE</h1>
+                        <p class="text-dark">This process is irreversible. Are you SURE you want to delete your account?
+                        </p>
+
+                        <div class="clearfix">
+                          <a href="/profile">
+                            <button type="button" class="cancelbtn  btn btn-primary">
+                              Cancel
+                            </button>
+                          </a>
+                          <button type="button" class="deletebtn  btn btn-danger">
+                            <a href="/deleteuser">
+                              Delete
+                            </a></button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -31,8 +54,9 @@ Profile
         </div>
       </div>
     </div>
+  </div>
 
-  </section>
+</section>
 
 
 {% endblock %}

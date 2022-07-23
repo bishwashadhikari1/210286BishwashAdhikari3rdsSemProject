@@ -7,19 +7,22 @@
             </span>
 
         </div>
-        <i class='bx  toggle'></i>
+        <i class='bx  toggle fa fa-bars'></i>
     </header>
     <div class="menu-bar">
         <div class="menu">
             <ul class="menu-links">
                 <li class="nav-link">
+                    
                     <a href="/dashboard/{{user.username}}">
+                        <i class="fa fa-home" ></i>
                         <span class="text nav-text">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="/preferances">
-
+                        <i class="fa fa-gears" ></i>
+                        
                         <span class="text nav-text">Preferances</span>
                     </a>
                 </li>
@@ -27,12 +30,15 @@
 
                 <li class="nav-link">
                     <a href="/subscription">
+                        <i class="fa fa-wrench" ></i>
                         <span class="text nav-text">Upgrade</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="/profile"  >
+                    <a href="/profile" >
+                        <i class="fa fa-user" ></i>
+
                         <span class="text nav-text">Profile</span>
                     </a>
                 </li>
@@ -40,12 +46,31 @@
 
             </ul>
         </div>
+      <div id="logoutmodal" class="modal">
+        <form class="modal-content">
+          <div class="container-modall">
+            <h1>LOG OUT</h1>
+            <p class="text-dark">Are you sure you want to log out?
+            </p>
 
+            <div class="clearfix">
+              <a href="/profile">
+                <button type="button" class="cancelbtn  btn btn-primary">
+                  Cancel
+                </button>
+              </a>
+              <button type="button" class="deletebtn  btn btn-danger">
+                <a href="/logout">
+                  Log Out
+                </a></button>
+            </div>
+          </div>
+        </form>
+      </div>
         <div class="bottom-content">
             <li class="">
-                <a href="/logout">
-                    <span class="text nav-text">Logout</span>
-                </a>
+                    
+                    <span class="text nav-text" onclick="document.getElementById('logoutmodal').style.display='block'"><i class="fa fa-power-off" ></i>Logout</span>
             </li>
 
 

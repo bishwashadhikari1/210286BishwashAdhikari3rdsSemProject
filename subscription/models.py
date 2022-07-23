@@ -1,18 +1,23 @@
 from django.db import models
-from base.models import Users
-
+from django.contrib.auth.models import User
+from datetime import date
 class Subscription(models.Model): 
-    owner = models.ForeignKey(Users, on_delete=models.CASCADE)
-    current_plan = models.TextField(default='BASIC')
+    sub_id = models.AutoField(primary_key=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    current_plan = models.TextField(default='basic')
     expiration = models.DateField(null=True)
     class Meta:
          db_table='subscription'
     def __str__(self) :
         return self.owner
 
-class transactionHistory(models.Model):
-    transaction_id = models.TextField(primary_key=True)
-    subscription = models.ForeignKey(Subscription, on_delete=models.CASCADE)
+    def isExpired(self):
+        return self.expiration < date
+
+class TransactionHistory(models.Model):
+    transaction_id = models.AutoField(primary_key=True)
+    current_subscription = models.ForeignKey(Subscription, on_delete=models.CASCADE)
+    plan = models.TextField()
     created = models.DateTimeField()
     expiry = models.DateTimeField()
     currency = models.TextField()

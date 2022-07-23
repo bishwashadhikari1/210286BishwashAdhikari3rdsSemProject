@@ -12,8 +12,9 @@ Dashboard
 
 {% block content %}
 
-<div class=" container container-fluid row dashboard d-flex flex-column">
-    <h3>
+<div class="container-fluid row dashboard d-flex flex-column">
+    
+    <h3 class="text-left">
         Risk Percentage : {{preferances.risk}}
         <br>
         Position Size: {{preferances.positionsize}}
@@ -29,9 +30,32 @@ Dashboard
     <a href="/preferances">
         <button type="button"class="btn btn-primary mb-2">Change Preferances</button>
         </a>
-    <a href="/graph/{{user.username}}">
-    <button type="button" id="start-bot-btn" class="btn btn-primary">Start</button>
-    </a>
+    <button type="button" id="start-bot-btn" class="btn btn-primary"onclick="document.getElementById('id01').style.display='block'">Start</button>
+   
+
+
+  <div id="id01" class="modal">
+    <form class="modal-content">
+      <div class="container-modall actual-modal">
+        <h1>Start automated trading</h1>
+        <p class="text-dark">Are you sure you want to start the bot? Make sure you have correct preferances to avoid over exposure.
+
+        </p>
+
+        <div class="clearfix">
+          <a href="/dashboard/{{request.user.username}}">
+            <button type="button" class="deletebtn  btn btn-danger">
+              Cancel
+            </button>
+          </a>
+          <button type="button" class="btn btn-primary">
+            <a href="/graph/{{user.username}}">
+              Start Bot
+            </a></button>
+        </div>
+      </div>
+    </form>
+  </div>
 
     
 

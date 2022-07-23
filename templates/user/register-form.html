@@ -4,7 +4,7 @@ Register
 {% endblock %}
 {% block content %}
 {% load static %}
-<section id="signup">
+<section id="signup" class="pageinfo">
     <div class="container">
         <div class="row mb-5">
             <div class=" col-md-12 mx-auto text-center">
@@ -15,7 +15,7 @@ Register
             <form action="#"  class="register-form row   justify-content-center" method="POST" id="form">
                 {% csrf_token %}
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Username" name="username" id="username">
+                    <input type="text" class="form-control" placeholder="Username" name="username" id="inputusername">
                 </div>
                 
                 <div class="col-md-12 text-center err-msg" id="register-username-field">
@@ -24,34 +24,36 @@ Register
         
                 <br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="E-mail" name="email" id="email">
+                    <input type="text" class="form-control" placeholder="E-mail" name="email" id="inputemail">
                 </div>
                 <div class="col-md-12 text-center err-msg" id="register-email-field">
 
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="Password" name="password" id="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" id="inputpassword">
                 </div>
                 <div class="col-md-12 text-center err-msg" id="register-password-field">
         
                 </div>
                 <br>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="API Key" name="apikey" id="apikey">
+                    <input type="text" class="form-control" placeholder="API Key" name="apikey" id="inputapikey">
                 </div>
 <br>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret" id="apisecret">
+                    <input type="password" class="form-control" placeholder="API Secret" name="apisecret" id="inputapisecret">
                 </div>
                                 
                 <div class="col-md-12 text-center err-msg" id="register-api-field">
                     
                 </div>
                 <div class="col-md-12 text-center">
-                    <button  value="register" class="btn btn-primary ">Sign Up</button>
+                    <button  value="submit" class="btn btn-primary ">Sign Up</button>
                 </div>
-
+                <div class="col-md-12 text-center">
+                    Already have an account? <a href="/login">Log In here</a>.
+                </div>
             </form>
     </div>
 </section>

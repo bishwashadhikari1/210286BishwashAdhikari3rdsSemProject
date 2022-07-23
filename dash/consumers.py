@@ -52,7 +52,7 @@ class GraphConsumer(WebsocketConsumer):
                 if curr != 0:
                     curr_pnltrade = [currr['symbol'] , float(currr['realizedPnl'])]
                     last_10_trades = last_10_trades + curr_pnltrade
-                if len(last_10_trades) == 20:
+                if len(last_10_trades) == 10:
                     break
             self.send(json.dumps({'pnl':diction['pnl'],'time':diction['time'], 'positions':all_pos, 'history':last_10_trades}))    
         print("#######CONNECTED############")

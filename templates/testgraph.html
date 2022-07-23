@@ -35,17 +35,13 @@ Dashboard
 {% block content %}
 {{username|json_script:"group-name"}}
 
-<div class=" container container-fluid row dashboard d-flex flex-column">
-    <h3>
-        {% for preferance in preferances %}
-        <p>{{preferance.key}} : {{preferance.value}}</p><br>
-        {% endfor %}
-    </h3>
+<div class=" container-fluid row dashboard d-flex flex-column">
+
     <a href="/dashboard/{{username}}">
     <button type="button" id="stop-bot-btn" class="btn btn-primary mt-3 ">Stop</button></a>
     <div class="container">
         <div class="row-lg-6">
-            <canvas id="myChart" width="800", height="300">
+            <canvas id="myChart" class="50vh" width="1000">
 
             </canvas>
         </div>
