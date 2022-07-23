@@ -16,17 +16,43 @@ Preferances
         <label for="risk">RISK <i class="fa fa-bacteria" ></i></label>
         <select name="risk" id="risk" class="form-select">
             <option value ={{preferances.risk}} selected>{{preferances.risk}}</option>
+            {% if plan == 'basic' %}
+            <option value=0.5>0.5%</option>
+            <option value=1>1%</option>
+            {% elif plan == 'standard' %}
+            <option value=0.5>0.5%</option>
+            <option value=1>1%</option>
+            <option value=1.5>1.5%</option>
+            {% elif plan == 'premium' %}
             <option value=0.5>0.5%</option>
             <option value=1>1%</option>
             <option value=1.5>1.5%</option>
             <option value=2>2%</option>
             <option value=2.5>2.5%</option>
+            {% endif %}
 
         </select>
         <br>
         <label for="positionsize">Position Size</label>
         <select name="positionsize" id="positionsize" class="form-select">
             <option value ={{preferances.positionsize}} selected>{{preferances.positionsize}}</option>
+            {% if plan == 'basic' %} 
+            <option value=10>10</option>
+            <option value=20>20</option>
+            <option value=30>30</option>
+            <option value=50>50</option>
+            {% elif plan == 'standard' %}
+            <option value=10>10</option>
+            <option value=20>20</option>
+            <option value=30>30</option>
+            <option value=50>50</option>
+            <option value=100>100</option>
+            <option value=150>150</option>
+            <option value=200>200</option>
+            <option value=300>300</option>
+            <option value=500>500</option>
+            <option value=700>700</option>
+            {% elif plan == 'premium' %}
             <option value=10>10</option>
             <option value=20>20</option>
             <option value=30>30</option>
@@ -40,36 +66,67 @@ Preferances
             <option value=1000>1000</option>
             <option value=1500>1500</option>
             <option value=2000>2000</option>
+            {% endif %}
         </select>
         <br>
         <label for="noticker">Number of Tickers</label>
         <select name="noticker" id="noticker" class="form-select">
-
             <option value={{preferances.noticker}} selected>{{preferances.noticker}}</option>
+            {% if plan == 'basic' %}        
+            <option value=5>1</option>
+            <option value=5>3</option>    
+            {% elif plan == 'standard' %}
+            <option value=5>1</option>
+            <option value=5>3</option>
+            <option value=5>5</option>
+            <option value=10>10</option>
+            <option value=20>20</option>
+            {% elif plan == 'premium' %}
+            <option value=5>1</option>
+            <option value=5>3</option>
             <option value=5>5</option>
             <option value=10>10</option>
             <option value=20>20</option>
             <option value=40>40</option>
             <option value=70>70</option>
             <option value=100>100</option>
-
+            {% endif %}
         </select>
         <br>
         <label for="strategy">Strategy</label>
         <select name="strategy" id="strategy" class="form-select">
             <option value ={{preferances.strategy}} selected>{{preferances.strategy}}</option>
-
+            {% if plan == 'basic' %}     
             <option value="rsi">RSI</option>
-            <option value="macd">MACD</option>
+            <option value="candle_close">Candle Close</option>       
+            {% elif plan == 'standard' %}
+            <option value="rsi">RSI</option>
             <option value="candle_close">Candle Close</option>
+            <option value="macd">MACD</option>
+            {% elif plan == 'premium' %}
+            <option value="rsi">RSI</option>
+            <option value="candle_close">Candle Close</option>
+            <option value="macd">MACD</option>
             <option value="ema">EMA</option>
             <option value="sma">SMA</option>
+            {% endif %}
         </select>
         <br>
         <label for="timeframe">Time Frame</label>
         <select name="timeframe" id="timeframe" class="form-select">
             <option value ={{preferances.timeframe}} selected>{{preferances.timeframe}}</option>
-            
+            {% if plan == 'basic' %}    
+            <option value=90>1.5 hours</option>
+            <option value=120>2 hours</option>
+            <option value=240>4 hours</option>        
+            {% elif plan == 'standard' %}
+            <option value=30>30 min</option>
+            <option value=45>45 min</option>
+            <option value=60>1 hour</option>
+            <option value=90>1.5 hours</option>
+            <option value=120>2 hours</option>
+            <option value=240>4 hours</option>
+            {% elif plan == 'premium' %}
             <option value=1>1 min</option>
             <option value=5>5 min</option>
             <option value=15>15 min</option>
@@ -79,12 +136,25 @@ Preferances
             <option value=90>1.5 hours</option>
             <option value=120>2 hours</option>
             <option value=240>4 hours</option>
+            {% endif %}
+
         </select>
         <br>
         <label for="rrratio">Risk Reward Ratio</label>
         <select name="rrratio" id="rrratio" class="form-select" >
             <option value ={{preferances.rrratio}} selected>{{preferances.rrratio}}</option>
-            
+            {% if plan == 'basic' %}       
+            <option value=0.5>0.5</option>
+            <option value=1>1</option>
+            <option value=1.5>1.5</option>     
+            {% elif plan == 'standard' %}
+            <option value=0.5>0.5</option>
+            <option value=1>1</option>
+            <option value=1.5>1.5</option>
+            <option value=2>2</option>
+            <option value=2.5>2.5</option>
+            <option value=3>3</option>
+            {% elif plan == 'premium' %}
             <option value=0.5>0.5</option>
             <option value=1>1</option>
             <option value=1.5>1.5</option>
@@ -96,6 +166,7 @@ Preferances
             <option value=6>6</option>
             <option value=7>7</option>
             <option value=10>10</option>
+            {% endif %}
         </select>
         <br>
         <button class="btn modify-btn btn-parameter" type="submit" value="save">Modify</button>
