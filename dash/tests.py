@@ -18,7 +18,7 @@ class TestUrls(SimpleTestCase):
         self.assertEquals(resolve(url).func,static_dash) # assertEquals compares function returned from resolve and the existing function
 
 class TestViews(TestCase):
-    def test_subs(self):
+    def test_statuc_daaaaaa(self):
 
         client = Client()
         ewwser = User.objects.create(
